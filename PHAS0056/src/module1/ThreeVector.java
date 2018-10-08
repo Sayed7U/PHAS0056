@@ -53,19 +53,19 @@ public class ThreeVector {
 		return Math.toDegrees(b);
 	}
 
-	public double scalarProduct(ThreeVector v1) {
+	public double scalarProductNS(ThreeVector v1) {
 		return scalarProduct(v1, this);
 	}
 
-	public ThreeVector vectorProduct(ThreeVector v1) {
+	public ThreeVector vectorProductNS(ThreeVector v1) {
 		return vectorProduct(v1, this);
 	}
 
-	public ThreeVector add(ThreeVector v1) {
+	public ThreeVector addNS(ThreeVector v1) {
 		return add(v1, this);
 	}
 
-	public double angle(ThreeVector v1) {
+	public double angleNS(ThreeVector v1) {
 		return angle(v1, this);
 	}
 }
