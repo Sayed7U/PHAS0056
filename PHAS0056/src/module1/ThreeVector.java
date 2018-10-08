@@ -12,9 +12,9 @@ public class ThreeVector {
 	//Creating ThreeVector constructors
 	public ThreeVector() { 
 		//returns null for no arguments
-		
 	}
 	
+	//constructor for 3 arguments
 	public ThreeVector(double v1,double v2,double v3) {
 		x=v1;
 		y=v2;
@@ -54,4 +54,19 @@ public class ThreeVector {
 		return Math.toDegrees(b);
 	}
 	
+	public double scalarProduct(ThreeVector v1) {
+		return scalarProduct(v1, this);
+	}
+	
+	public ThreeVector vectorProduct(ThreeVector v1) {
+		return vectorProduct(v1, this);
+	}
+	
+	public ThreeVector add(ThreeVector v1) {
+		return add(v1, this);
+	}
+	
+	public double angle(ThreeVector v1) {
+		return angle(v1, this);
+	}
 }
