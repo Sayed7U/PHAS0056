@@ -12,9 +12,7 @@ public class DataTypes {
 		System.out.println(longVar);
 		byte byteVar = 5;
 		System.out.println(byteVar);
-		
 		System.out.println(doubVar * floatVar * intVar * longVar * byteVar);
-		
 		System.out.println("The value of the double variable is " + doubVar);
 		System.out.println(intVar + doubVar);
 		System.out.println(byteVar + doubVar);
