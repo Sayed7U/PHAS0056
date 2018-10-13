@@ -18,7 +18,7 @@ public class ThreeVector {
 
 	//Finds the magnitude of the ThreeVector
 	public double magnitude() {
-		return Math.sqrt(x*x + y*y + z*z);
+		return Math.sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
 	}
 
 	//Finds a vector in the same directions as the ThreeVector but with magnitude 1.
@@ -26,13 +26,13 @@ public class ThreeVector {
 		if (this.magnitude()==0) { 
 			return new ThreeVector(0,0,0);
 		} else {
-			return new ThreeVector(x/magnitude(), y/magnitude(), z/magnitude());
+			return new ThreeVector(this.x/magnitude(), this.y/magnitude(), this.z/magnitude());
 		}
 	}
 
 	//Defines what to print when the object is called in a print statement
 	public String toString() {
-		return "(" + x + "," + y + "," + z + ")";
+		return "(" + this.x + "," + this.y + "," + this.z + ")";
 	}
 
 	//uses the formula from vector analysis to calculate the scalar product
