@@ -10,6 +10,10 @@ public class Complex {
 		this.y=v2;
 	}
 	
+	static Complex ONE = new Complex(1,0);
+	static Complex ZERO = new Complex(0,0);
+	static Complex I = new Complex(0,1);
+	
 	public String toString() {
 		return this.x + " + " + this.y + "i"; 
 	}
@@ -67,5 +71,30 @@ public class Complex {
 			realv = -realv;
 		}
 		return new Complex(realv,imgv);
+	}
+	
+	public static Complex add(Complex C1, Complex C2) {
+		double x2 = C1.x + C2.x;
+		double y2 = C1.y + C2.y;
+		return new Complex(x2,y2);
+		
+	}
+	
+	public static Complex subtract(Complex C1, Complex C2) {
+		double x2 = C1.x - C2.x;
+		double y2 = C1.y - C2.y;
+		return new Complex(x2,y2);
+	}
+	
+	public static Complex multiply(Complex C1, Complex C2) {
+		double x2 = C1.x * C2.x - C1.y * C2.y;
+		double y2 = C1.y * C2.x + C2.y * C1.x;
+		return new Complex(x2,y2);
+	}
+	
+	public static Complex divide(Complex C1, Complex C2) {
+		double x2 = (C1.x * C2.x + C1.y * C2.y)/(C2.modulus()*C2.modulus());
+		double y2 = (C1.y * C2.x - C2.y * C1.x)/(C2.modulus()*C2.modulus());
+		return new Complex(x2,y2);
 	}
 }
