@@ -1,34 +1,48 @@
-package module1;
+package module2;
 
 public class Complex {
 	
+	//defining the real and imaginary parts as local variables. x is the real part whilst y is the imaginary part.
 	private double x,y;
 	
-	//constructor for 2 arguments, real and imaginary part
+	public Complex() { 
+		//returns null for no arguments
+	}
+	
+	//constructor for 2 arguments, real (x) and imaginary part (y)
 	public Complex(double v1,double v2) {
 		this.x=v1;
 		this.y=v2;
 	}
 	
+	//Defining final variables for useful complex numbers
 	final static Complex ONE = new Complex(1,0);
 	final static Complex ZERO = new Complex(0,0);
 	final static Complex I = new Complex(0,1);
 	
+	
+	//The output when a complex number is called in a print statement
 	public String toString() {
 		return this.x + " + " + this.y + "i"; 
 	}
+	
+	//returns the real part
 	public double real() {
 		return this.x;
 	}
 	
+	//returns the imaginary part
 	public double imag() {
 		return this.y;
 	}
-
+	
+	//Finds the modulus or length of the complex number
 	public double modulus() {
 		return Math.sqrt(this.x*this.x + this.y*this.y);
 	}
 	
+	
+	//The argument of the complex number,  we define it in radians and between -Pi and Pi.
 	public double angle() {
 		double agl = Math.atan(this.y/this.x);
 		if (this.x < 0 && this.y > 0) {

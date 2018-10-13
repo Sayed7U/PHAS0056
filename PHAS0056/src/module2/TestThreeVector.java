@@ -1,4 +1,4 @@
-package module1;
+package module2;
 
 public class TestThreeVector {
 
