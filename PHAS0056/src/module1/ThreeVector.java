@@ -26,7 +26,7 @@ public class ThreeVector {
 		if (this.magnitude()==0) { 
 			return new ThreeVector(0,0,0);
 		} else {
-			return new ThreeVector(this.x/magnitude(), this.y/magnitude(), this.z/magnitude());
+			return new ThreeVector(this.x/this.magnitude(), this.y/this.magnitude(), this.z/this.magnitude());
 		}
 	}
 

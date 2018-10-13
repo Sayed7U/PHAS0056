@@ -10,9 +10,9 @@ public class Complex {
 		this.y=v2;
 	}
 	
-	static Complex ONE = new Complex(1,0);
-	static Complex ZERO = new Complex(0,0);
-	static Complex I = new Complex(0,1);
+	final static Complex ONE = new Complex(1,0);
+	final static Complex ZERO = new Complex(0,0);
+	final static Complex I = new Complex(0,1);
 	
 	public String toString() {
 		return this.x + " + " + this.y + "i"; 
@@ -48,9 +48,13 @@ public class Complex {
 	}
 	
 	public Complex normalised() {
-		double x2 = this.x/modulus();
-		double y2 = this.y/modulus();
-		return new Complex(x2,y2);
+		if (this.modulus() == 0) {
+			return new Complex(0,0);
+		} else {
+			double x2 = this.x/this.modulus();
+			double y2 = this.y/this.modulus();
+			return new Complex(x2,y2);
+		}
 	}
 	
 	public boolean equals(Complex C) {
