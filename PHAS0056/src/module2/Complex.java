@@ -110,7 +110,7 @@ public class Complex {
 	//static, multiplication of 2 complex numbers
 	public static Complex multiply(Complex C1, Complex C2) {
 		//using a pen and paper i found the formula for the new real and imaginary part of the output. This simply uses that formula.
-		double x2 = C1.x * C2.x - C1.y * C2.y; 
+		double x2 = C1.x * C2.x - C1.y * C2.y;
 		double y2 = C1.y * C2.x + C2.y * C1.x;
 		return new Complex(x2,y2);
 	}
