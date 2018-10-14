@@ -22,8 +22,8 @@ public class FallingParticle {
 		this.v = sv;
 	}
 	
-	public String getZ() {
-		return "The current position of the particle is "+ this.z;
+	public double getZ() {
+		return this.z;
 	}
 	
 	public double getV() {
@@ -36,16 +36,16 @@ public class FallingParticle {
 	
 	public  void doTimeStep(double deltaT) {
 		double a = ((this.d * this.v * this.v)/this.m) - g;
-		this.v = this.v + a * deltaT;
-		this.z = this.z + this.v * deltaT;
+		this.v += a * deltaT;
+		this.z += this.v * deltaT;
 	}
 	
 	public void drop(double deltaT) {
 		this.z = this.h;
 		this.t = 0;
-		while (this.z > 0) {
+		while (this.getZ() > 0) {
 			this.doTimeStep(deltaT);
-			this.t = this.t + deltaT;
+			this.t += deltaT;
 		}
 	}
 
@@ -54,14 +54,33 @@ public class FallingParticle {
 		particle.setH(5);
 		particle.setV(0);
 		particle.drop(0.5);
-		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT());
-		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV());
+		System.out.println("dt = 0.5");
+		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s. \n");
 		
-		particle.setH(5);
 		particle.setV(0);
 		particle.drop(0.1);
-		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT());
-
+		System.out.println("dt = 0.1");
+		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s. \n");
+		
+		particle.setV(0);
+		particle.drop(0.01);
+		System.out.println("dt = 0.01");
+		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s. \n");
+		
+		particle.setV(0);
+		particle.drop(0.001);
+		System.out.println("dt = 0.001");
+		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s. \n");
+		
+		particle.setV(0);
+		particle.drop(0.0001);
+		System.out.println("dt = 0.0001");
+		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s.");
 	}
 
 }
