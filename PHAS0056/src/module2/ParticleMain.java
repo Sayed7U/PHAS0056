@@ -34,7 +34,11 @@ public class ParticleMain {
 		particle.drop(0.0001);
 		System.out.println("dt = 0.0001");
 		System.out.println("The time taken to reach the bottom of the vessel is " + particle.getT() + " seconds.");
-		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s.");
+		System.out.println("The velocity when it hits the bottom of the vessel is " + particle.getV() + " m/s. \n");
+		
+		System.out.println("As we decrease the increment dt towards zero, the time taken and velocity calculated are more accurate."
+				+ "\nThe acceleration,"
+				+ " velocity and position functions with respect to time become smoother with smaller dt.");
 	}
 
 

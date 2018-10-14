@@ -10,9 +10,9 @@ public class FallingParticle {
 	}
 	
 	//constructor with 2 arguments, the mass and the drag coeff
-	public FallingParticle(double v1,double v2) {
-		this.m = v1;
-		this.d = v2;
+	public FallingParticle(double m1,double d2) {
+		this.m = m1;
+		this.d = d2;
 	}
 	
 	//sets the height of the falling particle

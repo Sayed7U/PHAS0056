@@ -24,7 +24,6 @@ public class TestThreeVector {
 		System.out.println("The angle between v1 and v3 is " + ThreeVector.angle(v1, v3));
 		System.out.println("The non static angle between v1 and v2 is " + v1.angleNS(v2));
 		System.out.println("The non static angle between v1 and v3 is " + v1.angleNS(v3));
-		System.out.println(v1);
 		System.out.println("Without a toString() method defined, when a 3-vector object is called in a print statement, it returns how the object"
 				+ " is stored in memory.");
 	}
