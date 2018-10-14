@@ -2,7 +2,7 @@ package module2;
 
 public class ThreeVector {
 
-	private double x,y,z; // defining the coords as local variables
+	public double x,y,z; // defining the coords as local variables
 
 	//Creating ThreeVector constructors
 	public ThreeVector() { 
