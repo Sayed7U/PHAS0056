@@ -7,9 +7,11 @@ public class Alphabet {
 	static Random r = new Random();
 	
 	public static void main(String[] args) {
+		
 		StringBuilder s = new StringBuilder();
 		int total = 0;
 		int exceptions = 0;
+		
 		for (int i = 0; i <= 400; i++) {
 			char c = randomCharacter();
 			if (Character.isLetterOrDigit(c)) {
@@ -19,7 +21,7 @@ public class Alphabet {
 					total += c;
 				}
 				catch (Exception e) {
-					exceptions += c;
+					exceptions += 1;
 				}
 			}
 		}
