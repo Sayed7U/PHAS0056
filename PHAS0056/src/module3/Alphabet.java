@@ -5,15 +5,22 @@ import java.lang.StringBuilder;
 public class Alphabet {
 	
 	static Random r = new Random();
-	static StringBuilder s = new StringBuilder();
-
+	
 	public static void main(String[] args) {
+		StringBuilder s = new StringBuilder();
+		int total = 0;
+		int exceptions = 0;
 		for (int i = 0; i <= 400; i++) {
 			char c = randomCharacter();
-			if (Character.isDigit(c) || Character.isLetter(c)) {
+			if (Character.isLetterOrDigit(c)) {
 				s.append(c);
-				Integer.parseInt(c);
-				
+				try {
+					Integer.parseInt(Character.toString(c));
+					total += c;
+				}
+				catch (Exception e) {
+					exceptions += c;
+				}
 			}
 		}
 	}
