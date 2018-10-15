@@ -55,7 +55,7 @@ public class ThreeVector {
 		if (v1.magnitude() == 0 || v2.magnitude() == 0) {
 			throw new Exception("Cannot find angle between a zero vector and another vector, zero vector is a point");
 		}
-		double a = (scalarProduct(v1,v2))/v1.magnitude()*v2.magnitude();
+		double a = (scalarProduct(v1,v2))/(v1.magnitude()*v2.magnitude());
 		double b = Math.acos(a);
 		return Math.toDegrees(b);
 	}

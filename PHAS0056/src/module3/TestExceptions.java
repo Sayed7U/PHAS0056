@@ -35,7 +35,7 @@ public class TestExceptions {
 		
 		ThreeVector v1 = new ThreeVector(1,1,1);
 		ThreeVector v2 = new ThreeVector(0,0,0);
-		ThreeVector v3 = new ThreeVector(1,2,3);
+		ThreeVector v3 = new ThreeVector(1,2,4);
 		
 		try {
 			System.out.println("unitvector of v1 is " + v1.unitVector());
@@ -66,7 +66,47 @@ public class TestExceptions {
 		}
 		
 		try {
-			System.out.println("non static angle between v1 and v3 is  " + ThreeVector.angle(v1, v3));
+			System.out.println("angle between v1 and v3 is  " + ThreeVector.angle(v1, v3));
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		FallingParticle p1 = null;
+		try {
+			p1 = new FallingParticle(1,4);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		try {
+			new FallingParticle(-1,4);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		try {
+			p1.setH(-1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		try {
+			p1.setH(5);
+			p1.setV(0);
+			p1.doTimeStep(-0.1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		try {
+			p1.setH(5);
+			p1.setV(0);
+			p1.drop(-0.1);
 		}
 		catch (Exception e) {
 			System.out.println(e);

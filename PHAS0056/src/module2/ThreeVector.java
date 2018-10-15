@@ -53,7 +53,7 @@ public class ThreeVector {
 
 	//uses the scalar product formula to find the angle between 2 vectors
 	public static double angle(ThreeVector v1,ThreeVector v2) {
-		double a = (scalarProduct(v1,v2))/v1.magnitude()*v2.magnitude();
+		double a = (scalarProduct(v1,v2))/(v1.magnitude()*v2.magnitude());
 		double b = Math.acos(a);
 		return Math.toDegrees(b);
 	}
