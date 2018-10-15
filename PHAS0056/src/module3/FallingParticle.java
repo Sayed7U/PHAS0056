@@ -11,13 +11,22 @@ public class FallingParticle {
 	}
 	
 	//constructor with 2 arguments, the mass and the drag coeff
-	public FallingParticle(double m1,double d2) {
+	public FallingParticle(double m1,double d2) throws Exception {
+		if (m1 < 0) {
+			throw new Exception("Mass cannot be negative.");
+		}
+		if (d2 < 0) {
+			throw new Exception("Drag coeff. cannot be negative.");
+		}
 		this.m = m1;
 		this.d = d2;
 	}
 	
 	//sets the height of the falling particle
-	public void setH(double sh) {
+	public void setH(double sh) throws Exception {
+		if (sh < 0) {
+			throw new Exception("The height must be positive (above ground)");
+		}
 		this.h = sh;
 	}
 	
@@ -31,7 +40,6 @@ public class FallingParticle {
 		return this.z;
 	}
 	
-	//returns the current velocity of the particle
 	public double getV() {
 		return this.v;
 	}
@@ -42,14 +50,20 @@ public class FallingParticle {
 	}
 	
 	//calculates v and z for the next time step.
-	public void doTimeStep(double deltaT) {
+	public void doTimeStep(double deltaT) throws Exception {
+		if (deltaT < 0) {
+			throw new Exception("The time step must be positive.");
+		}
 		double a = ((this.d * this.v * this.v)/this.m) - g; //eqn given in task
 		this.v += a * deltaT;
 		this.z += this.v * deltaT;
 	}
 	
 	//drops the particle, loops over the timestep until its position is zero (hits the bottom of the vessel)
-	public void drop(double deltaT) {
+	public void drop(double deltaT) throws Exception {
+		if (deltaT < 0) {
+			throw new Exception("The time step must be positive.");
+		}
 		this.z = this.h;
 		this.t = 0;
 		while (this.getZ() > 0) {

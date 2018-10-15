@@ -65,9 +65,9 @@ public class Complex {
 	
 	
 	//the complex number is returned with the same argument but with modulus 1.
-	public Complex normalised() {
+	public Complex normalised() throws Exception {
 		if (this.modulus() == 0) {
-			return new Complex(0,0);
+			throw new Exception("Cannot normalise a zero vector (dividing by zero)");
 		} else {
 			double x2 = this.x/this.modulus();
 			double y2 = this.y/this.modulus();
@@ -116,7 +116,10 @@ public class Complex {
 	}
 	
 	//static, division of 2 complex numbers, in the form C1/C2
-	public static Complex divide(Complex C1, Complex C2) {
+	public static Complex divide(Complex C1, Complex C2) throws Exception {
+		if (C2.modulus() == 0) {
+			throw new Exception("Cannot divide by zero.");
+		}
 		//again using a pen and paper, i found the formula for the real and imaginary parts and implemented it here
 		double x2 = (C1.x * C2.x + C1.y * C2.y)/(C2.modulus()*C2.modulus());
 		double y2 = (C1.y * C2.x - C2.y * C1.x)/(C2.modulus()*C2.modulus());

@@ -22,12 +22,11 @@ public class ThreeVector {
 	}
 
 	//Finds a vector in the same directions as the ThreeVector but with magnitude 1.
-	public ThreeVector unitVector() {
+	public ThreeVector unitVector() throws Exception {
 		if (this.magnitude()==0) { 
-			return new ThreeVector(0,0,0);
-		} else {
-			return new ThreeVector(this.x/this.magnitude(), this.y/this.magnitude(), this.z/this.magnitude());
+			throw new Exception("Cannot find unit vector of zero vector (dividing by zero)");
 		}
+		return new ThreeVector(this.x/this.magnitude(), this.y/this.magnitude(), this.z/this.magnitude());
 	}
 
 	//Defines what to print when the object is called in a print statement
@@ -52,12 +51,15 @@ public class ThreeVector {
 	}
 
 	//uses the scalar product formula to find the angle between 2 vectors
-	public static double angle(ThreeVector v1,ThreeVector v2) {
+	public static double angle(ThreeVector v1,ThreeVector v2) throws Exception {
+		if (v1.magnitude() == 0 || v2.magnitude() == 0) {
+			throw new Exception("Cannot find angle between a zero vector and another vector, zero vector is a point");
+		}
 		double a = (scalarProduct(v1,v2))/v1.magnitude()*v2.magnitude();
 		double b = Math.acos(a);
 		return Math.toDegrees(b);
 	}
-	
+
 	//Non-static versions of previous methods
 	public double scalarProductNS(ThreeVector v1) {
 		return scalarProduct(v1, this);
@@ -71,7 +73,7 @@ public class ThreeVector {
 		return add(v1, this);
 	}
 
-	public double angleNS(ThreeVector v1) {
-		return angle(v1, this);
+	public double angleNS(ThreeVector v1) throws Exception {
+			return angle(v1,this);
 	}
 }
