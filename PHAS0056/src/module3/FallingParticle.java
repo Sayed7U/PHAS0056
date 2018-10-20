@@ -16,7 +16,7 @@ public class FallingParticle {
 			throw new Exception("Mass cannot be negative.");
 		}
 		if (d2 < 0) {
-			throw new Exception("Drag coeff. cannot be negative.");
+			throw new Exception("The inputted drag cannot be negative, it automatically changes sign when velocity is positive.");
 		}
 		this.m = m1;
 		this.d = d2;
@@ -51,6 +51,9 @@ public class FallingParticle {
 	
 	//calculates v and z for the next time step.
 	public void doTimeStep(double deltaT) throws Exception {
+		if (this.v > 0) { // change sign of drag if particle is moving upwards
+			this.d = -this.d;
+		}
 		if (deltaT < 0) {
 			throw new Exception("The time step must be positive.");
 		}
