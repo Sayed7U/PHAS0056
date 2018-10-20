@@ -20,7 +20,7 @@ public class Alphabet {
 		for (int i = 0; i < 400; i++) {
 			char c = randomCharacter();
 			if (Character.isLetterOrDigit(c)) {
-				s.append(c);
+				s.append(c); //appends the character to a string.
 				try {
 					Integer.parseInt(Character.toString(c));
 					total += c; //total of all the integer characters generated are added
