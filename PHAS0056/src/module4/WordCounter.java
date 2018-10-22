@@ -1,13 +1,9 @@
 package module4;
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 public class WordCounter {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public static BufferedReader brFromURL(String urlName) throws IOException {
 		URL u = new URL(urlName);
@@ -22,11 +18,23 @@ public class WordCounter {
 	}
 	
 	public static int countWordsInResource(BufferedReader dataAsBR) throws IOException {
-		String words = null;
-		String line;
-		while ((line=dataAsBR.readLine()) != null) {
-			words += line;
+		int count = 0;
+		Scanner s = new Scanner(dataAsBR);
+		while (s.hasNext()) {
+			s.next();
+			count++;
 		}
-		return words.length();
+		s.close();
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		try {
+			BufferedReader urlbr = brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt");
+			System.out.println("The number of words is "+ countWordsInResource(urlbr));
+		} catch (IOException e) {
+			System.out.println("Problem: "+e.getMessage());
+		}
+		
 	}
 }
