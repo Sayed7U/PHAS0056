@@ -13,7 +13,20 @@ public class WordCounter {
 		URL u = new URL(urlName);
 		InputStream is = u.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(isr);
-		return br;
+		return new BufferedReader(isr);
+	}
+	
+	public static BufferedReader brFromFile(String fileName) throws IOException {
+		FileReader fr = new FileReader(fileName);
+		return new BufferedReader(fr);
+	}
+	
+	public static int countWordsInResource(BufferedReader dataAsBR) throws IOException {
+		String words = null;
+		String line;
+		while ((line=dataAsBR.readLine()) != null) {
+			words += line;
+		}
+		return words.length();
 	}
 }
