@@ -10,6 +10,9 @@ public class NumericalReader {
 		BufferedReader br = new BufferedReader(isr);
 		System.out.print("Please type something!");
 		String s = br.readLine();
+		if (s.length() == 0) {
+			s = System.getProperty("user.home");
+		}
 		return s;
 	}
 	
@@ -60,11 +63,24 @@ public class NumericalReader {
 
 	public static void main(String[] args) {
 		try {
-			getStringFromKeyboard();
+			String saveDir = getStringFromKeyboard();
+			String saveFile = (saveDir + File.separator + dataFile);
 		} catch (IOException e) {
 			//
 		}
-
+		NumericalReader nr = new NumericalReader();
+		try {
+			BufferedReader reader = nr.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
+			String line = "";
+			nr.analysisStart(saveFile);
+			while ((line = reader.readLine()) != null) {
+				nr.analyseData(line);
+			}
+			nr.analysisEnd();
+		} catch (IOException e) {
+			//
+		}
+		
 	}
 
 }
