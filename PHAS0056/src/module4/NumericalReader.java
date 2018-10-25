@@ -48,10 +48,10 @@ public class NumericalReader {
 			pw.println(x);
 			sumOfValues += x;
 			nValues += 1;
-			if (x < minValue || minValue == null) {
+			if (minValue == null || x < minValue) {
 				minValue = x;
 			}
-			if (x > maxValue || maxValue == null) {
+			if (maxValue == null || x > maxValue) {
 				maxValue = x;
 			}
 		}
