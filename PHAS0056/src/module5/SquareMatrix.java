@@ -55,4 +55,57 @@ public class SquareMatrix {
 		}
 		return true;
 	}
+	
+	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.m.length != sm2.m.length) {
+			throw new Exception ("The matrices must be of the same size!");
+		}
+		double[][] array = new double[sm1.m.length][sm1.m.length];
+		for (int i = 0; i < sm1.m.length; i++) {
+			for (int j = 0; j < sm1.m.length; j++) {
+				array[i][j] = sm1.m[i][j] + sm2.m[i][j];
+			}
+		}
+		return new SquareMatrix(array);
+	}
+	
+	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.m.length != sm2.m.length) {
+			throw new Exception ("The matrices must be of the same size!");
+		}
+		double[][] array = new double[sm1.m.length][sm1.m.length];
+		for (int i = 0; i < sm1.m.length; i++) {
+			for (int j = 0; j < sm1.m.length; j++) {
+				array[i][j] = sm1.m[i][j] - sm2.m[i][j];
+			}
+		}
+		return new SquareMatrix(array);
+	}
+	
+	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		if (sm1.m.length != sm2.m.length) {
+			throw new Exception ("The matrices must be of the same size!");
+		}
+		double[][] array = new double[sm1.m.length][sm1.m.length];
+		double sum = 0;
+		for (int i = 0; i < sm1.m.length; i++) {
+			for (int j = 0; j < sm1.m.length; j++) {
+				for (int k = 0; k < sm1.m.length; k++) {
+					sum += sm1.m[i][k] * sm2.m[k][j];
+				}
+				array[i][j] = sum;
+				sum = 0;
+			}
+		}
+		return new SquareMatrix(array);
+	}
+	public SquareMatrix add(SquareMatrix sm) throws Exception {
+		return add(this,sm);
+	}
+	public SquareMatrix subtract(SquareMatrix sm) throws Exception {
+		return subtract(this,sm);
+	}
+	public SquareMatrix multiply(SquareMatrix sm) throws Exception {
+		return multiply(this,sm);
+	}
 }
