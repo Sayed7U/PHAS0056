@@ -21,8 +21,8 @@ public class SquareMatrix {
 	
 	public String toString() {
 		StringBuilder s = new StringBuilder("");
-		for (int i = 0; i < m.length; i++) {
-		    for (int j = 0; j < m[i].length; j++) {
+		for (int i = 0; i < this.m.length; i++) {
+		    for (int j = 0; j < this.m[i].length; j++) {
 		    	s.append(m[i][j] + " ");
 		    }
 		    s.append("\n");
@@ -32,16 +32,27 @@ public class SquareMatrix {
 	}
 	
 	public static SquareMatrix unitMatrix(int size) throws Exception {
-			double[][] array = new double[size][size];
-			for (int i = 0; i < array.length; i++) {
-				array[i][i] = 1;
-			}
-			try {
-				return new SquareMatrix(array);
-			} catch (Exception e) {
-				System.out.print(e);
-			}
-			
+		if (size <= 0) {
+			throw new Exception ("Must have a size of 1 or above");
+		}
+		double[][] array = new double[size][size];
+		for (int i = 0; i < array.length; i++) {
+			array[i][i] = 1;
+		}
+		return new SquareMatrix(array);
+	}
 	
+	public boolean equals(SquareMatrix sm) {
+		if (this.m.length != sm.m.length) {
+			return false;
+		}
+		for (int i = 0; i < this.m.length; i++) {
+			for (int j = 0; j < this.m[i].length; j++) {
+				if (this.m[i][j] != sm.m[i][j]) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }
