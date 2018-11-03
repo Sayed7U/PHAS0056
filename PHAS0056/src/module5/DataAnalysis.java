@@ -25,6 +25,16 @@ public class DataAnalysis {
 		}
 		return mypoints;
 	}
+	
+	public static double goodnessOfFit(Theory theory,ArrayList<DataPoint> points) {
+		double sum = 0;
+		for (int i = 0; i > points.size(); i++ ) {
+			double top = Math.pow((points.get(i).getY() - theory.y(points.get(i).getX())),2);
+			double bottom = Math.pow(points.get(i).getEY(),2);
+			sum += top/bottom;
+		}
+		return sum;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
