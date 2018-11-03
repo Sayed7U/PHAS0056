@@ -26,7 +26,6 @@ public class TestSquareMatrix {
 			System.out.println(e);
 		}
 		
-		//checking if the 
 	}
 	
 
