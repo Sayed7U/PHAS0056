@@ -28,7 +28,7 @@ public class DataAnalysis {
 	
 	public static double goodnessOfFit(Theory theory,ArrayList<DataPoint> points) {
 		double sum = 0;
-		for (int i = 0; i > points.size(); i++ ) {
+		for (int i = 0; i < points.size(); i++ ) {
 			double top = Math.pow((points.get(i).getY() - theory.y(points.get(i).getX())),2);
 			double bottom = Math.pow(points.get(i).getEY(),2);
 			sum += top/bottom;
@@ -37,7 +37,23 @@ public class DataAnalysis {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		try {
+			ArrayList<DataPoint> data = DataAnalysis.dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-xy.txt");
+			double chisquared2 = goodnessOfFit(new Theory(2),data);
+			System.out.println("The chi squared statistic for y^2 is: " + chisquared2);
+			
+			double chisquared4 = goodnessOfFit(new Theory(4),data);
+			System.out.println("The chi squared statistic for y^4 is: " + chisquared4);
+			
+			System.out.println("The y^2 shows a better fit as it has a lower value for the chi squared statistic");
+			
+		} catch (IOException e) {
+			System.out.println("Problem: "+e.getMessage());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
 
 	}
 
