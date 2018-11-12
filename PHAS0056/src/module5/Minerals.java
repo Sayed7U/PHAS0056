@@ -38,7 +38,7 @@ public class Minerals {
 			line = line.trim(); //gets rid of white-space preceding and following a line
 			Scanner s = new Scanner(line);
 			while (s.hasNext()) {
-			String location = s.next(); //the first col is the value of the keys
+				String location = s.next(); //the first col is the value of the keys
 				locationMap.put(Integer.parseInt(s.next()),location);
 			}
 			s.close(); //closing the scanner
@@ -65,7 +65,7 @@ public class Minerals {
 		}
 		return ("The sample with the largest mass: \n"
 				+ "Code Number: " + code + "\n" + 
-				"Mass: " + lMass + "\n" + 
+				"Mass: " + lMass + "g \n" + 
 				"Location: " + location + "\n");
 	}
 
@@ -90,7 +90,7 @@ public class Minerals {
 		}
 		return ("The sample with the smallest mass: \n"
 				+ "Code Number: " + code + "\n" + 
-				"Mass: " + sMass + "\n" + 
+				"Mass: " + sMass + "g \n" + 
 				"Location: " + location + "\n");
 	}
 	public static void main(String[] args) {
@@ -98,7 +98,7 @@ public class Minerals {
 			//Creating the url data as hashmaps
 			HashMap<Integer, Double> massData = massDataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-samples.txt");
 			HashMap<Integer, String> locationData = locationDataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-locations.txt");
-			
+
 			System.out.println(largestMass(massData,locationData));
 			System.out.println(smallestMass(massData,locationData));
 		} catch (IOException e) {
