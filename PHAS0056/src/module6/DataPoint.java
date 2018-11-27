@@ -1,4 +1,4 @@
-package module5;
+package module6;
 
 //defining a datapoint as having an x, y and error value. This class simply recalls these values
 public class DataPoint {
@@ -24,5 +24,9 @@ public class DataPoint {
 	//returns the error in y
 	public double getEY() {
 		return this.ey;
+	}
+	
+	public String toString() {
+		return "x = " + this.x + ", y = " + this.y + " +- " + this.ey;
 	}
 }
