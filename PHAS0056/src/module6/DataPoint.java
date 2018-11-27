@@ -26,6 +26,7 @@ public class DataPoint {
 		return this.ey;
 	}
 	
+	//String in a print statement
 	public String toString() {
 		return "x = " + this.x + ", y = " + this.y + " +- " + this.ey;
 	}
