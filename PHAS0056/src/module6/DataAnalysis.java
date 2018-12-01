@@ -1,5 +1,5 @@
 package module6;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class DataAnalysis {
@@ -30,7 +30,7 @@ public class DataAnalysis {
 			theories.add(new PowerLawTheory(2));
 			theories.add(new PowerLawTheory(2.05));
 			theories.add(new QuadraticTheory(1,10,0));
-			bestTheory(data,theories, new ChiSquared());
+			System.out.println("The best theory that matches the data file is " + bestTheory(data,theories, new ChiSquared()));
 		} catch (IOException e) {
 			System.out.println("Problem: "+e.getMessage());
 		}
