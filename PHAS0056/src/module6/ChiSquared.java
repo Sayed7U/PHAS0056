@@ -2,6 +2,7 @@ package module6;
 
 import java.util.*;
 
+//using chisquared to determine how well datapoints fit a certain theory
 public class ChiSquared implements GoodnessOfFitCalculator{
 
 	//statistically compares how well an array of DataPoint fits in with a theory, using chi-squared
