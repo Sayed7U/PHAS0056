@@ -6,7 +6,7 @@ import java.util.*;
 public class TestDataPoints {
 	
 	public static ArrayList<DataPoint> dataFromURL(String url) throws IOException {
-		ArrayList<DataPoint> DataPoints = new ArrayList<DataPoint>(); //array of DataPoint (the class we made)
+		ArrayList<DataPoint> DataPoints = new ArrayList<DataPoint>(); //an array of DataPoint (the class we made)
 		URL u = new URL(url); //creating URL object
 		InputStream is = u.openStream(); //opening the URL object 
 		InputStreamReader isr = new InputStreamReader(is); //reading the resulting input stream
