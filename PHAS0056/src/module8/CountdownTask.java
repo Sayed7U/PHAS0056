@@ -16,7 +16,9 @@ public class CountdownTask implements Runnable {
 		try {
 			while (sec >= 0) {
 				System.out.println(sec);
-				wait(1000);
+				if (sec != 0) {
+					Thread.sleep(1000);
+				}
 				sec--;
 			}
 		} catch (InterruptedException e) {
