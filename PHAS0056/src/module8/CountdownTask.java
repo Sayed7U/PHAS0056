@@ -13,7 +13,7 @@ public class CountdownTask implements Runnable {
 			while (sec >= 0) {
 				System.out.println(sec);
 				wait(1000);
-				sec -= 1;
+				sec--;
 			}
 		} catch (Exception e) {
 			System.out.println(e);
