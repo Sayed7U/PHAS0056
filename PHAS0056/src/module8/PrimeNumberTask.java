@@ -4,9 +4,10 @@ import java.util.*;
 public class PrimeNumberTask implements Runnable {
 
 	private int n = 1;
-	private ArrayList<Integer> primes = new ArrayList<Integer>();
+	public ArrayList<Integer> primes = new ArrayList<Integer>();
 
 	public void run() {
+		System.out.println("Running PrimeNumberTask...");
 		while (true) {
 			if (n==1) {
 			primes.add(n);

@@ -4,19 +4,23 @@ public class CountdownTask implements Runnable {
 
 	private int sec;
 
-	public CountdownTask(int seconds) {
+	public CountdownTask(int seconds) throws Exception {
+		if (seconds < 0) {
+			throw new Exception("Time given must be greater than 0.");
+		}
 		this.sec = seconds;
 	}
 
 	public void run() {
+		System.out.println("Running CountdownTask...");
 		try {
 			while (sec >= 0) {
 				System.out.println(sec);
 				wait(1000);
 				sec--;
 			}
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
