@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- *  Panel with start, stop and exit buttons for rotating square animation.
+ *  Panel with start, stop, exit, forward and backward buttons.
  */
 @SuppressWarnings("serial")
 public class AnimationGuiPanel extends JPanel
@@ -53,7 +53,7 @@ implements ActionListener {
 		add(buttonPanel);
 		add(factor);
 		add(timeElapsed);
-		
+
 	}
 
 	/** Respond to button clicks */
@@ -63,7 +63,9 @@ implements ActionListener {
 			animPanel.factor= animPanel.factor * 10;
 		};
 		if (e.getSource()==backwardButton) {
-			animPanel.factor= animPanel.factor / 10;
+			if (animPanel.factor != 1) {
+				animPanel.factor= animPanel.factor / 10;
+			}
 		};
 		if (e.getSource()==startButton) start();
 		else if (e.getSource()==stopButton) stop();
@@ -71,8 +73,14 @@ implements ActionListener {
 	}
 
 	/** Start animation */
-	public void start() {animPanel.start();}
+	public void start() {
+		animPanel.start();
+		AnimationPanel.watch.play();
+	}
 
 	/** Stop animation */
-	public void stop() {animPanel.stop();}
+	public void stop() {
+		animPanel.stop();
+		AnimationPanel.watch.pause();
+	}
 }
