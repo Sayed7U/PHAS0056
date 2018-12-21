@@ -18,14 +18,15 @@ implements ActionListener {
 	private JButton backwardButton;
 	public static JLabel factor;
 	public static JLabel timeElapsed;
+	public static JLabel legend;
 
 	/** Create JPanel containing animation panel and buttons. */
 	public AnimationGuiPanel() {
 		super();
-		setPreferredSize(new Dimension(1000,1000));
+		setPreferredSize(new Dimension(1500,1000));
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
-		animPanel = new AnimationPanel(1000,1000);
+		animPanel = new AnimationPanel(1500,1000);
 		startButton = new JButton("Start");
 		stopButton  = new JButton("Stop");
 		exitButton = new JButton("Exit");
@@ -33,6 +34,9 @@ implements ActionListener {
 		backwardButton = new JButton("Backward");
 		factor = new JLabel();
 		timeElapsed = new JLabel();
+		legend = new JLabel();
+		
+		legend.setText("Sun: Yellow    Mercury: Orange    Venus: Blue    Earth: Green    Mars: Red    Asteroids: Grey    Halley's comet: White");
 
 		startButton.addActionListener(this);
 		stopButton.addActionListener(this);
@@ -53,6 +57,7 @@ implements ActionListener {
 		add(buttonPanel);
 		add(factor);
 		add(timeElapsed);
+		add(legend);
 
 	}
 
